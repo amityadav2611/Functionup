@@ -17,11 +17,15 @@ router.get('/test-me1', function (req, res) {
 });
 
 router.get('/test-me2', function (req, res) {
-    todaydate.printDate();
+    todaydate.printdate();
+    todaydate.printmonth();
+    todaydate.getbatchinfo();
     res.send('Today date is successfully display');
 });
 router.get('/test-me3', function (req, res) {
-    textrim.trim();
+    textrim.trimText();
+    textrim.tolowercase();
+    textrim.touppercase();
     res.send('text are successfully trim,tolowercase and touppercase')
 });
 
@@ -43,7 +47,9 @@ router.get('/hello', function (req, res) {
         'December'  
     ]
    
-    console.log(_.chunk(month, 3));
+    console.log(_.chunk(month, 3
+        
+        ));
 
     res.send('My first Api!');
 
@@ -61,7 +67,7 @@ router.get('/hello', function (req, res) {
 
     console.log(_.union(arr1,arr2,arr3,arr4,arr5));
 
-    /*****$th ques (D) ******************/
+    /*****5th ques (D) ******************/
 
     let createObj = [
         ['name', 'Amit'], 
