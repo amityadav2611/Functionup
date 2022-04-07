@@ -8,7 +8,10 @@ router.get('/test-me', function (req, res) {
     console.log(req)
     console.log('------------------')
     console.log('These are the request query parameters: ', req.query)
-    res.send('My first ever api!')
+//Write a get api that returns a list of candidate names
+    const candidates = ['Amit','Ravi','Arun','Sunil','Sweta','Shivam','Rohit','Rohan','Narendra','Ankit'];
+    
+    res.send('My first ever once again api!')
 });
 
 
