@@ -26,10 +26,52 @@ router.get('/test-me3', function (req, res) {
 });
 
 router.get('/hello', function (req, res) {
-    let month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    /*****4th ques (A) ******************/
+    const month = 
+    [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'  
+    ]
+   
+    console.log(_.chunk(month, 3));
 
-    console.log(_.chunk(month,2));
-    res.send('My first ever api!')
+    res.send('My first Api!');
+
+    /*****4th ques (B) ******************/
+    const oddNum = [1,3,5,7,9,11,13,15,17,19];
+    console.log(_.tail(oddNum));
+
+
+/*****4th ques (C) ******************/
+    const arr1 = [1,2,3,45,5];
+    const arr2 = [11,10,3,45,5];
+    const arr3 = [1,20,3,45,5];
+    const arr4 = [15,21,35,45,5];
+    const arr5 = [1,20,30,45,5];
+
+    console.log(_.union(arr1,arr2,arr3,arr4,arr5));
+
+    /*****$th ques (D) ******************/
+
+    let createObj = [
+        ['name', 'Amit'], 
+        ['live', 'Agra'], 
+        ['used', 'nodejs']
+    ]
+      
+    let obj = _.fromPairs(createObj);
+      
+    console.log(obj)
 });
 module.exports = router;
 // adding this comment for no reason
