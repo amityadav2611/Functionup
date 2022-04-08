@@ -17,10 +17,78 @@ const router = express.Router();
 //     res.send('My first ever api!')
 // });
 
+//Problem-1
 router.get('/movies', function (req,res){
-    res.send(['Bahubali','Spiderman','Avengers','Wanted','Sholey'])
+    const arr = ['Bahubali','Spiderman','Avengers','Wanted','Sholey']
+    res.send(arr)
 })
 
+//Problem-2
+router.get('/movies/:indexNumber', function (req, res) {
+    const arr = ['Bahubali','Spiderman','Avengers','Wanted','Sholey','Tiger']
+    const id = req.params.indexNumber
+    if(id <= arr.length){
+        res.send(arr[id])
+    }else{
+        res.send('use a valid index')
+    }
+})
+
+//Problem-4
+router.get('/films', function (req, res) {
+    const arr4 = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       
+       res.send(arr4)
+       
+})
+
+//Problem-5
+router.get('/films/:filmId', function(req, res){
+    const arr5 = [ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       },{
+        "id": 5,
+        "name": "Ek tha Tiger"
+       }, {
+        "id": 6,
+        "name": "Villen"
+       },{
+        "id": 7,
+        "name": "RRR"
+       }, {
+        "id": 8,
+        "name": "Heropanti"
+       }]
+
+       const id = req.params.filmId;
+       if(id <= arr5.length){
+        res.send(arr5[id])
+    }else{
+        res.send('No movie exists with this id')
+    }
+})
 
 
 
