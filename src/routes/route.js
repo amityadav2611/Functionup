@@ -2,6 +2,17 @@ const express = require('express');
 
 const router = express.Router();
 
+//    let data = req.body;
+//     players.filter((item) => {
+//         if(item.name === data.name) return res.send({msg: "Player does not exist"});
+//     })
+//     players.push(data);
+//     //return res.send(players);
+//     //console.log(players);
+    
+//    return  res.send(  { data: players , status: true }  )
+// 
+
 router.get('/test-me', function (req, res) {
     // let a = { msg: "My first ever API response in JSON !!"} 
 
@@ -61,10 +72,62 @@ router.post('/test-post2', function (req, res) {
 });
 
 
-const randomController= require("../controllers/randomController.js")
-//write a post request to accept an element in post request body and add it to the given array and return the new array
-router.post('/test-post3', randomController.addToArray ); //HANDLER/CONTROLLER
+// const randomController= require("../controllers/randomController.js")
+// //write a post request to accept an element in post request body and add it to the given array and return the new array
+// router.post('/test-post3', randomController.addToArray ); //HANDLER/CONTROLLER
 
 
+// Assignment problem
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ]
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ]
+       },
+   ]
+
+
+   router.post('/players', function (req, res) {
+ 
+    //LOGIC WILL COME HERE
+
+     let data = req.body.name
+    console.log(data)
+
+    for(let i = 0; i <= players.length;i++){
+
+        if(data  !== players[i].name){
+            players.push(req.body)
+            res.send(  { data: players , status: true }  )
+           
+        }else{
+            res.send( {player : data + " " + "This player already exist"} )
+            
+        }
+    }
+});
 
 module.exports = router;
