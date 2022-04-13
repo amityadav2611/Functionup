@@ -92,16 +92,18 @@ const bookList = async function (req, res){
 
 //3
 const booksinYear = async function (req, res){
-   //let publishedYear = req.body.publishedYear
+    //let yr = req.body.year
 
-    let allBooks= await BookModel.find( {publishedYear: { $eq:  2018 }  })
+    let allBooks= await BookModel.find( {publishedYear: req.body.publishedYear})
     //.select( { bookName: 1, publishedYear: 1,  _id: 0})
     res.send({msg: allBooks})
 }
 
-//4--not done
+//4-- done
 const getParticularBooks = async function (req, res){
-    let allBooks= await BookModel.find({ $or : [{bookName: /^hi/i }, {"publishedYear":2019}]})
+
+    let condition = req.body
+    let allBooks= await BookModel.find(condition)
     res.send({msg: allBooks})
 }
 
