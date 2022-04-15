@@ -37,7 +37,8 @@ const bookModel = require("../models/bookModel.js")
 //     // let data = req.body 
 //     let allBooks= await BookModel.updateMany( 
 //         { authorName: "FI"} , //condition
-//         { $set: {isDeleted: true} }, //update in data
+//         { $set: {isDeleted: true} }, //update in data -user active
+//         { $set: {isDeleted: false} }, //update in data -user not active active
 //         { new: true } ,
 //      )
      
