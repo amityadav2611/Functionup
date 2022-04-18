@@ -6,9 +6,11 @@ const router = express.Router();
 
 // const authorControllerData = require("../controllers/authorDataControllers")
 // const publisherControllerData = require("../controllers/publisherControllers")
-const bookControllerData = require("../controllers/bookDataControllers.js")
+//const bookControllerData = require("../controllers/bookDataControllers.js")
 
-const controller1= require("../controllers/controllers1")
+//const controller1= require("../controllers/controllers1")
+
+const controllers2 = require("../controllers/controller2.js")
 
 
 
@@ -35,12 +37,23 @@ router.get("/test-me", function (req, res) {
 // router.post("/createBookData", bookControllerData.createBookData)
 // router.get("/getBookData", bookControllerData.getBookData)
 
-router.post("/createAuthor", controller1.createAuthorData  )
-router.post("/createPublisher", controller1.createPublisherData)
-router.post("/createBook", controller1.createBookDatas  )
-router.get("/getAllBooks", controller1.getBookWithAuthorPublisher)
-router.put("/books/:name", controller1.hardCover)
+// router.post("/createAuthor", controller1.createAuthorData  )
+// router.post("/createPublisher", controller1.createPublisherData)
+// router.post("/createBook", controller1.createBookDatas  )
+// router.get("/getAllBooks", controller1.getBookWithAuthorPublisher)
+// router.put("/books/:name", controller1.hardCover)
 
 
+//Assignment on 18 april
+router.post("/batches",controllers2.createBatches)
+
+router.post("/developers", controllers2.createDevelopers)
+
+router.get("/scholarship-developers", controllers2.getScholarshipDevelopers)
+
+router.get("/developersdetails", controllers2.getDevelopers)
+
+
+//router.get("/devdetails", controllers2.test)
 
 module.exports = router;
