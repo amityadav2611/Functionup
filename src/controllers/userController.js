@@ -11,5 +11,16 @@ const getUsersData= async function (req, res) {
     res.send({msg: allUsers})
 }
 
+
+const basicCode = async function (req, res){
+    console.log("hey man, congrats you have reached the handler")
+    const date = new Date()
+    console.log("Time:", date, req.ip, req.path);
+    res.send({msg: "This is coming from controller {handlers}"})
+}
+
+module.exports.basicCode = basicCode
+
+
 module.exports.createUser= createUser
 module.exports.getUsersData= getUsersData
