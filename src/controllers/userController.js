@@ -1,5 +1,7 @@
 const req = require("express/lib/request")
 const UserModel= require("../models/userModel")
+const ProductModel = require("../models/productModel")
+const OrderModel = require("../models/orderModel")
 
 const basicCode= async function(req, res) {
     let tokenDataInHeaders= req.headers.token
@@ -11,10 +13,22 @@ const basicCode= async function(req, res) {
     
     }
 
+// const createProduct = async function(req,res){
+//     let requestBody1 = req.body
+//     let Product = await ProductModel.create(requestBody1)
+//     res.send({msg: Product})
+// }
 
-const createAUser = function(req, res) {
+// const createAUser = async function(req, res){
+//     let requestBody2 = req.body
+//     let User = await UserModel.create(requestBody2)
+//     res.send({msg: User})
+// }
+
+const createOrder = function(req, res) {
     let requestBody = req.body
-    let headers  = req.headers
+     let headers  = req.headers
+    console.log(requestBody)
     
 
     //Printing all the headers before modification - addition of a new header called 'month'
@@ -45,8 +59,12 @@ const createAUser = function(req, res) {
     res.send('Just create a user')
 }
 
-module.exports.createAUser = createAUser
+//module.exports.createAUser = createAUser
 module.exports.basicCode = basicCode
+
+//module.exports.createProduct = createProduct
+
+//module.exports.createOrder = createOrder
 
 
 
