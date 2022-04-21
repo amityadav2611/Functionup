@@ -28,13 +28,14 @@ const loginUser = async function (req, res) {
   // The decision about what data to put in token depends on the business requirement
   // Input 2 is the secret
   // The same secret will be used to decode tokens
+  //console.log(user._id)
   let token = jwt.sign(
     {
       userId: user._id.toString(),
       batch: "thorium",
       organisation: "FUnctionUp",
     },
-    "functionup-thorium"
+    "functionup-thorium"    //secret keys
   );
   res.setHeader("x-auth-token", token);
   res.send({ status: true, data: token });
@@ -55,6 +56,7 @@ const getUserData = async function (req, res) {
   // Input 2 is the same secret with which the token was generated
   // Check the value of the decoded token yourself
   let decodedToken = jwt.verify(token, "functionup-thorium");
+  //console.log(decodedToken)
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
 
